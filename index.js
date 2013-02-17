@@ -36,7 +36,9 @@ function builder (saw, xs) {
             var args = [].slice.call(arguments, 1);
             if (err) {
                 context.error = { message : err, key : key };
-                saw.jump(lastPar);
+                if (lastPar != undefined) {   
+                  saw.jump(lastPar);    
+                }
                 saw.down('catch');
                 g();
             }
